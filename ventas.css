@@ -1,0 +1,367 @@
+
+/* =====================================
+   ESTILOS GENERALES - HUMBECEL TECNOLOGIA
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fondo: #101010;
+    --superficie: #1b1b1b;
+    --superficie-hover: #252525;
+    --texto: #f5f5f5;
+    --texto-suave: #b8b8b8;
+    --naranja: #ff6b22;
+    --naranja-hover: #e95710;
+    --borde: #303030;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =====================================
+   ENCABEZADO
+===================================== */
+
+.header {
+    min-height: 76px;
+    padding: 16px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: #171717;
+    border-bottom: 1px solid var(--borde);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--naranja);
+}
+
+.usuario {
+    color: var(--texto-suave);
+    font-size: .95rem;
+}
+
+.usuario strong {
+    color: var(--naranja);
+}
+
+.salir {
+    padding: 9px 17px;
+    border: 1px solid var(--naranja);
+    border-radius: 7px;
+    color: var(--naranja);
+    font-weight: 700;
+    transition: .2s ease;
+}
+
+.salir:hover {
+    background: var(--naranja);
+    color: #fff;
+}
+
+/* =====================================
+   CONTENEDOR PRINCIPAL
+===================================== */
+
+.contenedor {
+    flex: 1;
+    padding: 75px 8%;
+    background: radial-gradient(
+        circle at 80% 10%,
+        #332016 0,
+        #171717 40%,
+        #101010 75%
+    );
+}
+
+/* =====================================
+   BIENVENIDA
+===================================== */
+
+.bienvenida {
+    max-width: 850px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.bienvenida h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.bienvenida h1 span {
+    color: var(--naranja);
+}
+
+.bienvenida p {
+    color: var(--texto-suave);
+    font-size: 1.05rem;
+    max-width: 650px;
+    margin: auto;
+}
+
+/* =====================================
+   OPCIONES DEL VENDEDOR
+===================================== */
+
+.opciones {
+    max-width: 950px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.tarjeta {
+    min-height: 290px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    transition: transform .25s ease,
+                border-color .25s ease,
+                background .25s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+    border-color: var(--naranja);
+    background: var(--superficie-hover);
+}
+
+.icono {
+    width: 65px;
+    height: 65px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 22px;
+    border-radius: 12px;
+    background: #392216;
+    color: var(--naranja);
+    font-size: 2rem;
+}
+
+.tarjeta h2 {
+    font-size: 1.55rem;
+    margin-bottom: 10px;
+}
+
+.tarjeta p {
+    color: var(--texto-suave);
+    font-size: .95rem;
+    margin-bottom: 25px;
+}
+
+.tarjeta span {
+    margin-top: auto;
+    color: var(--naranja);
+    font-weight: 800;
+    transition: color .2s ease;
+}
+
+.tarjeta:hover span {
+    color: #ff915c;
+}
+
+/* =====================================
+   PIE DE PÁGINA
+===================================== */
+
+footer {
+    padding: 28px 8%;
+    text-align: center;
+    background: #101010;
+    border-top: 1px solid var(--borde);
+}
+
+footer p {
+    color: var(--texto-suave);
+    font-size: .88rem;
+}
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 800px) {
+
+    .header {
+        padding: 16px 5%;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .contenedor {
+        padding: 60px 6%;
+    }
+
+    .opciones {
+        gap: 18px;
+    }
+
+    .tarjeta {
+        padding: 25px;
+    }
+}
+
+/* =====================================
+   CELULARES
+===================================== */
+
+@media (max-width: 520px) {
+
+    .header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .usuario {
+        text-align: center;
+    }
+
+    .contenedor {
+        padding: 45px 6%;
+    }
+
+    .bienvenida {
+        margin-bottom: 35px;
+    }
+
+    .opciones {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta {
+        min-height: 250px;
+    }
+
+    footer {
+        padding: 22px 5%;
+    }
+}
+
+/* =====================================
+   FORMULARIO DE REGISTRO DE VENTAS
+===================================== */
+
+.formulario-venta {
+    width: 90%;
+    max-width: 550px;
+    margin: 30px auto;
+    padding: 25px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+    margin: 0;
+}
+
+.formulario label {
+    color: #1e3a5f;
+    font-weight: bold;
+}
+
+.formulario select,
+.formulario input {
+    display: block;
+    width: 100%;
+    height: 45px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+.boton-registrar {
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 7px;
+    background: #1e3a5f;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton-registrar:hover {
+    background: #2f5d8a;
+}
+
+/* =====================================
+   BOTÓN DE FACTURA
+===================================== */
+
+.acciones-factura {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.boton-factura {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #198754;
+    color: white;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.boton-factura:hover {
+    background: #146c43;
+}
+
+/* =====================================
+   VOLVER AL PANEL
+===================================== */
+
+.volver {
+    text-align: center;
+    margin: 20px;
+}
