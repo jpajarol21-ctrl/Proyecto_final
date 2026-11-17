@@ -1,0 +1,622 @@
+
+/* =====================================
+   ESTILOS GENERALES
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fondo: #101010;
+    --superficie: #1b1b1b;
+    --texto: #f5f5f5;
+    --texto-suave: #b8b8b8;
+    --naranja: #2d1d16;
+    --naranja-hover: #e95710;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =====================================
+   ENCABEZADO
+===================================== */
+
+.header {
+    min-height: 76px;
+    padding: 16px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: #171717;
+    border-bottom: 1px solid #303030;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* LOGO HUMBECEL TECNOLOGIA */
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    white-space: nowrap;
+    color: #ffffff;
+}
+
+.logo span {
+    color: var(--naranja);
+}
+
+h1 span,
+h2 span {
+    color: var(--naranja);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav a {
+    color: var(--texto-suave);
+    transition: color .2s ease;
+}
+
+.nav a:hover {
+    color: var(--naranja);
+}
+
+
+/* =====================================
+   SECCIÓN PRINCIPAL
+===================================== */
+
+.hero {
+    min-height: 470px;
+    padding: 75px 8%;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 40px;
+    background: radial-gradient(
+        circle at 80% 45%,
+        #332016 0,
+        #171717 42%,
+        #101010 75%
+    );
+}
+
+.hero-content {
+    max-width: 620px;
+}
+
+.eyebrow {
+    color: var(--naranja);
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-content > p:not(.eyebrow) {
+    color: var(--texto-suave);
+    max-width: 540px;
+    margin-bottom: 28px;
+}
+
+.btn,
+.details-btn {
+    display: inline-block;
+    border: 0;
+    border-radius: 7px;
+    padding: 12px 20px;
+    background: var(--naranja);
+    color: #fff;
+    font-weight: 700;
+    transition: background .2s ease, transform .2s ease;
+}
+
+.btn:hover,
+.details-btn:hover {
+    background: var(--naranja-hover);
+    transform: translateY(-2px);
+}
+
+.hero-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+.hero-images img {
+    width: 46%;
+    max-height: 290px;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 25px #0009);
+}
+
+
+/* =====================================
+   CARACTERÍSTICAS
+===================================== */
+
+.features {
+    padding: 28px 8%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    background: #181818;
+}
+
+.features article {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.features article > span {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 42px;
+    color: var(--naranja);
+    background: #392216;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.features h3 {
+    font-size: 1rem;
+}
+
+.features p {
+    color: var(--texto-suave);
+    font-size: .88rem;
+}
+
+
+/* =====================================
+   SECCIONES
+===================================== */
+
+.section {
+    padding: 78px 8%;
+}
+
+.about {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.section h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.2;
+}
+
+.about > p,
+.section-heading > p:last-child {
+    color: var(--texto-suave);
+}
+
+
+/* =====================================
+   CATÁLOGO
+===================================== */
+
+.catalog {
+    background: #171717;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-heading > p:last-child {
+    margin-top: 10px;
+}
+
+.catalog-tools {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 28px 0 14px;
+}
+
+.catalog-tools input {
+    min-width: 230px;
+    padding: 11px 14px;
+    color: var(--texto);
+    background: #252525;
+    border: 1px solid #444;
+    border-radius: 7px;
+    outline: none;
+}
+
+.catalog-tools input:focus {
+    border-color: var(--naranja);
+}
+
+.filter-btn {
+    padding: 10px 16px;
+    color: var(--texto-suave);
+    background: #292929;
+    border: 1px solid #414141;
+    border-radius: 7px;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    color: #fff;
+    background: var(--naranja);
+    border-color: var(--naranja);
+}
+
+.counter {
+    color: var(--texto-suave);
+    text-align: center;
+    margin-bottom: 22px;
+    font-size: .9rem;
+}
+
+
+/* =====================================
+   TARJETAS DE PRODUCTOS
+===================================== */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.product-card {
+    overflow: hidden;
+    background: var(--superficie);
+    border: 1px solid #303030;
+    border-radius: 12px;
+    transition: transform .2s ease, border-color .2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--naranja);
+}
+
+.product-card[hidden] {
+    display: none;
+}
+
+.product-image {
+    height: 220px;
+    display: grid;
+    place-items: center;
+    padding: 15px;
+    background: #222;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.brand {
+    color: var(--naranja);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.product-info h3 {
+    font-size: 1.35rem;
+    margin: 5px 0;
+}
+
+.product-info p {
+    color: var(--texto-suave);
+    font-size: .92rem;
+}
+
+.price {
+    display: block;
+    color: var(--naranja);
+    font-size: 1.35rem;
+    margin: 14px 0;
+}
+
+.details-btn {
+    width: 100%;
+}
+
+
+/* =====================================
+   SIN RESULTADOS
+===================================== */
+
+.no-results {
+    text-align: center;
+    padding: 35px 15px;
+    color: var(--texto-suave);
+}
+
+.no-results h3 {
+    color: var(--texto);
+    margin-bottom: 5px;
+}
+
+.no-results .details-btn {
+    width: auto;
+    margin-top: 15px;
+}
+
+
+/* =====================================
+   PIE DE PÁGINA
+===================================== */
+
+.footer {
+    padding: 28px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: #101010;
+    border-top: 1px solid #303030;
+}
+
+.footer p {
+    color: var(--texto-suave);
+    font-size: .88rem;
+}
+
+
+/* =====================================
+   VENTANA MODAL
+===================================== */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: none;
+    place-items: center;
+    padding: 20px;
+    background: #000b;
+}
+
+.modal.show {
+    display: grid;
+}
+
+.modal-content {
+    position: relative;
+    width: min(100%, 430px);
+    padding: 35px;
+    background: #202020;
+    border: 1px solid #444;
+    border-radius: 14px;
+    box-shadow: 0 20px 60px #0009;
+}
+
+.modal-content h2 {
+    margin-bottom: 14px;
+}
+
+.modal-content p:not(.eyebrow) {
+    color: var(--texto-suave);
+    margin: 7px 0;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 2rem;
+}
+
+.modal-content .btn {
+    margin-top: 8px;
+}
+
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 800px) {
+
+    .header {
+        flex-direction: column;
+    }
+
+    .nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin: auto;
+    }
+
+    .hero-images img {
+        max-height: 220px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =====================================
+   CELULARES
+===================================== */
+
+@media (max-width: 520px) {
+
+    .header {
+        padding: 14px 5%;
+    }
+
+    .logo {
+        font-size: 1.6rem;
+    }
+
+    .nav {
+        gap: 8px 14px;
+        font-size: .9rem;
+    }
+
+    .hero,
+    .section {
+        padding: 55px 6%;
+    }
+
+    .hero-images img {
+        max-height: 170px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-tools {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .catalog-tools input {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .filter-btn {
+        width: 100%;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+
+
+/* =====================================
+   COMPLEMENTOS DEL CATÁLOGO DINÁMICO
+===================================== */
+
+/* Ocultar productos que no coinciden con los filtros */
+
+.product-card[hidden],
+.no-results[hidden] {
+    display: none !important;
+}
+
+
+/* Imagen de los productos nuevos */
+
+.product-placeholder {
+    width: 100%;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 85px;
+    background: linear-gradient(145deg, #252525, #151515);
+}
+
+
+/* Información adicional de disponibilidad */
+
+.product-info > p {
+    margin-bottom: 10px;
+}
+
+
+/* Mejorar la presentación de las tarjetas */
+
+.product-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info .details-btn {
+    margin-top: auto;
+}

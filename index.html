@@ -1,0 +1,621 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humbecel Tecnologia | Tienda de celulares</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <a href="#inicio" class="logo">
+        Humbecel <span>Tecnologia</span>
+    </a>
+
+    <nav class="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="login.html">Acceso Sistema</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <!-- =================================
+         SECCIÓN PRINCIPAL
+    ================================== -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <p class="eyebrow">TECNOLOGÍA A TU ALCANCE</p>
+
+            <h1>
+                Encuentra el celular
+                <span>perfecto para ti</span>
+            </h1>
+
+            <p>
+                Conoce nuestros equipos, compara opciones
+                y elige el que mejor se adapta a tus necesidades.
+            </p>
+
+            <a href="#catalogo" class="btn">Ver catálogo</a>
+
+        </div>
+
+        <div class="hero-images">
+
+            <img src="img/iphone18.jpg" alt="iPhone">
+
+            <img src="img/Samsung27.jpg" alt="Samsung">
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================
+         CARACTERÍSTICAS
+    ================================== -->
+
+    <section class="features">
+
+        <article>
+            <span>✓</span>
+
+            <div>
+                <h3>Equipos seleccionados</h3>
+                <p>Opciones para diferentes necesidades.</p>
+            </div>
+        </article>
+
+        <article>
+            <span>⌁</span>
+
+            <div>
+                <h3>Atención personalizada</h3>
+                <p>Te ayudamos a elegir tu equipo.</p>
+            </div>
+        </article>
+
+        <article>
+            <span>★</span>
+
+            <div>
+                <h3>Calidad y tecnología</h3>
+                <p>Conoce las características de cada celular.</p>
+            </div>
+        </article>
+
+    </section>
+
+
+    <!-- =================================
+         SOBRE NOSOTROS
+    ================================== -->
+
+    <section class="about section" id="nosotros">
+
+        <div>
+
+            <p class="eyebrow">CONÓCENOS</p>
+
+            <h2>Sobre <span>Humbecel Tecnologia</span></h2>
+
+        </div>
+
+        <p>
+            En Humbecel Tecnologia queremos acercarte a la tecnología.
+            Nuestro catálogo reúne celulares de distintas marcas
+            para que puedas conocer sus características y encontrar
+            una opción que se ajuste a ti.
+        </p>
+
+    </section>
+
+
+    <!-- =================================
+         CATÁLOGO
+    ================================== -->
+
+    <section class="catalog section" id="catalogo">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">NUESTROS EQUIPOS</p>
+
+            <h2>Catálogo de <span>celulares</span></h2>
+
+            <p>
+                Busca por nombre o filtra los productos por marca.
+            </p>
+
+        </div>
+
+
+        <!-- BUSCADOR Y FILTROS -->
+
+        <div class="catalog-tools">
+
+            <input
+                type="search"
+                id="buscador"
+                placeholder="Buscar celular..."
+                aria-label="Buscar celular"
+            >
+
+            <button class="filter-btn active" data-filter="todos">
+                Todos
+            </button>
+
+            <button class="filter-btn" data-filter="apple">
+                Apple
+            </button>
+
+            <button class="filter-btn" data-filter="samsung">
+                Samsung
+            </button>
+
+            <button class="filter-btn" data-filter="xiaomi">
+                Xiaomi
+            </button>
+
+            <button class="filter-btn" data-filter="motorola">
+                Motorola
+            </button>
+
+            <button class="filter-btn" data-filter="honor">
+                Honor
+            </button>
+
+            <button class="filter-btn" data-filter="otra">
+                Otras
+            </button>
+
+        </div>
+
+
+        <!-- CONTADOR -->
+
+        <p class="counter" id="contador-productos">
+            Cargando productos...
+        </p>
+
+
+        <!-- PRODUCTOS DINÁMICOS -->
+
+        <div class="product-grid" id="lista-productos">
+            <!-- JavaScript cargará los productos -->
+        </div>
+
+
+        <!-- MENSAJE SIN RESULTADOS -->
+
+        <div class="no-results" id="sin-resultados" hidden>
+
+            <h3>No encontramos productos</h3>
+
+            <p>
+                Prueba con otro nombre o selecciona otra marca.
+            </p>
+
+            <button class="details-btn" id="ver-todos">
+                Ver todos los productos
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =================================
+     PIE DE PÁGINA
+================================== -->
+
+<footer class="footer">
+
+   <a href="#inicio" class="logo">
+    Humbecel <span>Tecnologia</span>
+</a>
+
+    <p>© 2026 Humbecel Tecnologia. Todos los derechos reservados.</p>
+
+</footer>
+
+
+<!-- =================================
+     VENTANA DE DETALLES
+================================== -->
+
+<div class="modal" id="modal-producto" aria-hidden="true">
+
+    <div class="modal-content" role="dialog" aria-modal="true">
+
+        <button
+            class="close-modal"
+            id="cerrar-modal"
+            aria-label="Cerrar ventana"
+        >
+            &times;
+        </button>
+
+        <p class="eyebrow">DETALLES DEL EQUIPO</p>
+
+        <h2 id="modal-titulo">Nombre del celular</h2>
+
+        <p id="modal-marca"></p>
+
+        <p id="modal-almacenamiento"></p>
+
+        <p id="modal-stock"></p>
+
+        <strong class="price" id="modal-precio"></strong>
+
+        <button class="btn" id="aceptar-modal">
+            Cerrar
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+// ===================================
+// ELEMENTOS HTML
+// ===================================
+
+const buscador = document.getElementById("buscador");
+const listaProductos = document.getElementById("lista-productos");
+const contador = document.getElementById("contador-productos");
+const sinResultados = document.getElementById("sin-resultados");
+const botonVerTodos = document.getElementById("ver-todos");
+const botonesFiltro = document.querySelectorAll(".filter-btn");
+
+const modal = document.getElementById("modal-producto");
+
+let productos = [];
+let filtroActual = "todos";
+
+
+// ===================================
+// NORMALIZAR TEXTO
+// ===================================
+
+function normalizarTexto(texto) {
+    return String(texto ?? "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
+}
+
+
+// ===================================
+// OBTENER CATEGORÍA
+// ===================================
+
+function obtenerCategoria(marca) {
+    const marcaNormalizada = normalizarTexto(marca);
+
+    const marcas = [
+        "apple",
+        "samsung",
+        "xiaomi",
+        "motorola",
+        "honor"
+    ];
+
+    return marcas.includes(marcaNormalizada)
+        ? marcaNormalizada
+        : "otra";
+}
+
+
+// ===================================
+// FORMATO DE PRECIO
+// ===================================
+
+function formatearPrecio(precio) {
+    return Number(precio || 0).toLocaleString("es-CO", {
+        style: "currency",
+        currency: "COP",
+        maximumFractionDigits: 0
+    });
+}
+
+
+// ===================================
+// OBTENER IMAGEN
+// ===================================
+
+function obtenerImagen(producto) {
+    if (producto.imagen) {
+        return producto.imagen;
+    }
+
+    const imagenes = {
+        "iphone 13": "img/iphone13.jpg",
+        "samsung a54": "img/samsungA54.jpg",
+        "xiaomi redmi 12": "img/xiaomi12.jpg"
+    };
+
+    return imagenes[normalizarTexto(producto.nombre)] || null;
+}
+
+
+// ===================================
+// PLACEHOLDER DE IMAGEN
+// ===================================
+
+function crearPlaceholder(contenedor) {
+    const placeholder = document.createElement("div");
+    placeholder.className = "product-placeholder";
+    contenedor.appendChild(placeholder);
+}
+
+
+// ===================================
+// CREAR TARJETA
+// ===================================
+
+function crearTarjeta(producto) {
+    const tarjeta = document.createElement("article");
+    tarjeta.className = "product-card";
+    tarjeta.dataset.category = obtenerCategoria(producto.marca);
+
+    const contenedorImagen = document.createElement("div");
+    contenedorImagen.className = "product-image";
+
+    const rutaImagen = obtenerImagen(producto);
+
+    if (rutaImagen) {
+        const img = document.createElement("img");
+        img.src = rutaImagen;
+        img.alt = producto.nombre;
+        img.loading = "lazy";
+
+        img.onerror = () => {
+            contenedorImagen.replaceChildren();
+            crearPlaceholder(contenedorImagen);
+        };
+
+        contenedorImagen.appendChild(img);
+    } else {
+        crearPlaceholder(contenedorImagen);
+    }
+
+    const informacion = document.createElement("div");
+    informacion.className = "product-info";
+
+    const marca = document.createElement("span");
+    marca.className = "brand";
+    marca.textContent = String(producto.marca || "Otra").toUpperCase();
+
+    const nombre = document.createElement("h3");
+    nombre.textContent = producto.nombre || "Producto";
+
+    const almacenamiento = document.createElement("p");
+    almacenamiento.textContent =
+        "Almacenamiento: " + (producto.almacenamiento || "No especificado");
+
+    const precio = document.createElement("strong");
+    precio.className = "price";
+    precio.textContent = formatearPrecio(producto.precio);
+
+    const stock = document.createElement("p");
+    stock.textContent = "Disponibles: " + producto.stock;
+
+    const boton = document.createElement("button");
+    boton.className = "details-btn";
+    boton.textContent = "Ver detalles";
+
+    boton.addEventListener("click", () => {
+        abrirModal(producto);
+    });
+
+    informacion.append(
+        marca,
+        nombre,
+        almacenamiento,
+        precio,
+        stock,
+        boton
+    );
+
+    tarjeta.append(contenedorImagen, informacion);
+
+    return tarjeta;
+}
+
+
+// ===================================
+// MOSTRAR PRODUCTOS
+// ===================================
+
+function mostrarProductos() {
+    listaProductos.replaceChildren();
+
+    const termino = normalizarTexto(buscador.value);
+
+    const filtrados = productos.filter(producto => {
+        const coincideMarca =
+            filtroActual === "todos" ||
+            obtenerCategoria(producto.marca) === filtroActual;
+
+        const textoProducto = normalizarTexto(
+            `${producto.nombre || ""} ${producto.marca || ""} ${producto.almacenamiento || ""}`
+        );
+
+        const coincideBusqueda = textoProducto.includes(termino);
+
+        return coincideMarca && coincideBusqueda;
+    });
+
+    filtrados.forEach(producto => {
+        listaProductos.appendChild(crearTarjeta(producto));
+    });
+
+    contador.textContent =
+        `Mostrando ${filtrados.length} de ${productos.length} celulares disponibles`;
+
+    sinResultados.hidden = filtrados.length !== 0;
+}
+
+
+// ===================================
+// CONSULTAR PRODUCTOS EN MYSQL
+// ===================================
+
+async function cargarProductos() {
+    contador.textContent = "Cargando celulares...";
+    listaProductos.replaceChildren();
+
+    try {
+        const respuesta = await fetch("productos_tienda.php");
+
+        if (!respuesta.ok) {
+            throw new Error("Error al consultar el servidor.");
+        }
+
+        const datos = await respuesta.json();
+
+        if (!Array.isArray(datos)) {
+            throw new Error(datos.error || "La respuesta no es válida.");
+        }
+
+        productos = datos;
+
+        mostrarProductos();
+
+        if (productos.length === 0) {
+            contador.textContent = "No hay celulares disponibles actualmente.";
+        }
+
+    } catch (error) {
+        console.error("Error al cargar los celulares:", error);
+
+        contador.textContent =
+            "No se pudieron cargar los celulares. Intenta nuevamente.";
+
+        listaProductos.replaceChildren();
+        sinResultados.hidden = false;
+    }
+}
+
+
+// ===================================
+// BUSCADOR
+// ===================================
+
+buscador.addEventListener("input", mostrarProductos);
+
+
+// ===================================
+// FILTROS POR MARCA
+// ===================================
+
+botonesFiltro.forEach(boton => {
+    boton.addEventListener("click", () => {
+        botonesFiltro.forEach(item => {
+            item.classList.remove("active");
+        });
+
+        boton.classList.add("active");
+
+        filtroActual = boton.dataset.filter;
+
+        mostrarProductos();
+    });
+});
+
+
+// ===================================
+// RESTABLECER CATÁLOGO
+// ===================================
+
+botonVerTodos.addEventListener("click", () => {
+    buscador.value = "";
+    filtroActual = "todos";
+
+    botonesFiltro.forEach(boton => {
+        boton.classList.toggle(
+            "active",
+            boton.dataset.filter === "todos"
+        );
+    });
+
+    mostrarProductos();
+});
+
+
+// ===================================
+// MODAL DE DETALLES
+// ===================================
+
+function abrirModal(producto) {
+    document.getElementById("modal-titulo").textContent =
+        producto.nombre;
+
+    document.getElementById("modal-marca").textContent =
+        "Marca: " + producto.marca;
+
+    document.getElementById("modal-almacenamiento").textContent =
+        "Almacenamiento: " + producto.almacenamiento;
+
+    document.getElementById("modal-precio").textContent =
+        formatearPrecio(producto.precio);
+
+    document.getElementById("modal-stock").textContent =
+        "Unidades disponibles: " + producto.stock;
+
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden", "false");
+}
+
+
+function cerrarModal() {
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+}
+
+
+document.getElementById("cerrar-modal")
+    .addEventListener("click", cerrarModal);
+
+document.getElementById("aceptar-modal")
+    .addEventListener("click", cerrarModal);
+
+modal.addEventListener("click", evento => {
+    if (evento.target === modal) {
+        cerrarModal();
+    }
+});
+
+document.addEventListener("keydown", evento => {
+    if (evento.key === "Escape") {
+        cerrarModal();
+    }
+});
+
+
+// ===================================
+// INICIAR CATÁLOGO
+// ===================================
+
+cargarProductos();
+</script>
+</body>
+</html>
